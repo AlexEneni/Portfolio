@@ -1,0 +1,37 @@
+Projekt: 
+	Portfolio
+
+Osoby wykonuj¹ce (1):
+	Olgierd Kowalczyk (https://www.facebook.com/olek.kowalczyk.75)
+
+Technologie:
+	ASP.NET MVC
+	ADO.NET (opcjonalnie)
+
+Paczki dodatkowe:
+	Bootstrap - paczka gotowych komponentow CSS3 
+
+Opis:
+	Projekt ma na celu stworzenie CSM, który bedzie sluzyæ latwiemu tworzeniu 
+	i zarzadzaniu portfolio dla grafikow, filmowcow, muzykow czy nawet programistow.
+	Posiadajacy domyslnie 4 podstrony:
+	> Home - strona tytulowa przedstawiajaca autora i jego umiejetnosci.
+	> > trsci wyswietlane automatycznie wedlug ustalen autora w panelu administracyjnym.
+	> > wyswietlanie najnowszych n wpisow w galerie
+	> > wyswietlanie najnowszych n skroconych wpisow w blogu
+	> > Pasek SocialMedia
+	> Galery - strona posiadajaca wpisy portfolio tj grafiki, utwory, filmy.
+	> > wyswietlanie tresci automatycznie z wgranych plikow i wedlug ustalen autora
+	> > miniaturki rozwijajace sie, ktore pokazuja aktualnie wyswietlane tresci wraz
+	    z opisem, data dodania oraz informacjami dodatkowymi
+	> Contact - strona posiadajaca formularz kontaktowy, a takze komunikatory, ktorymi mozna porozumiewac sie z tworca
+	> > formularz posiadajacy podstawowe pola kontaktowe z mozliwoscia ich rozbudowy wg ustalen w panelu.
+	> > wyswietlanie informacji o uzywanych komunikatorach przez autora
+	> Blog - strona na ktorej autor moze opisywac swoje nowe projekty ect.
+	
+	Prosty w obsludze interface administracyjny pozwalajacy na:
+	> zarzadzanie stronami
+	> redagowanie tresci
+	> zarzadzanie uzytkownikami serwisu
+	> proste statystyki strony
+	
