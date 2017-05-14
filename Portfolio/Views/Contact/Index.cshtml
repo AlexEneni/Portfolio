@@ -1,0 +1,73 @@
+﻿@model Portfolio.Models.ContactModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    <div class="row" style="margin-top:2%">
+        <div class="col-md-8">
+            <h1>do poprawy</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.EditorFor(m => m);
+            }
+        </div>
+        <div class="col-md-4" style="border-left: 1px solid rgba(174,233,0,1)">
+            <h3>
+                Skontaktuj się ze mna przez:
+            </h3>
+            <dl>
+
+                <br />
+                <dt>
+                    Facebook
+                </dt>
+                <dd>
+                    <a href="https://www.facebook.com/olek.kowalczyk.75" target="_blank">Olek Kowalczyk</a>
+                </dd>
+
+                <br />
+                <dt>
+                    Twitter
+                </dt>
+                <dd>
+                    <a href="https://twitter.com/AlexEneni" target="_blank">AlexEneni</a>
+                </dd>
+
+                <br />
+                <dt>
+                    YouTube
+                </dt>
+                <dd>
+                    <a href="https://www.youtube.com/channel/UC2IeYg-kkK9jimBv6M0ZBpA" target="_blank">Lisiasty Olek</a>
+                </dd>
+
+                <br />
+                <dt>
+                    Instagram
+                </dt>
+                <dd>
+                    <a href="https://www.instagram.com/eneni.pl/" target="_blank">eneni.pl</a>
+                </dd>
+
+                <br />
+                <dt>
+                    Telegram
+                </dt>
+                <dd>
+                    <a href="https://t.me/Eneni97" target="_blank">&#64;Eneni97</a>
+                </dd>
+
+                <br />
+                <dt>
+                    E-mail
+                </dt>
+                <dd>
+                    <a href="mailto:olek97@hotmail.com" target="_blank">olek97&#64;hotmail.com</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+</div>
