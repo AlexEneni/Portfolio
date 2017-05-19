@@ -26,7 +26,58 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Kokpit", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("Public Page", "Index", "Admin")</li>
+                            <li class="dropdown">
+                                <a href="#"
+                                   class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">
+                                    Main <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Home</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Statistic</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" 
+                                   class="dropdown-toggle" 
+                                   data-toggle="dropdown" 
+                                   role="button" 
+                                   aria-haspopup="true" 
+                                   aria-expanded="false"
+                                   >
+                                    Contents <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Social Media</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Blog</a></li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Galery","Galery","Admin")</li>
+                            <li class="dropdown">
+                                <a href="#"
+                                   class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">
+                                    Support <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Licence</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Oferts</a></li>
+                                </ul>
+                            </li>
                         </ul>
 
                         <!-- @Html.Partial("_LoginPartial") -->

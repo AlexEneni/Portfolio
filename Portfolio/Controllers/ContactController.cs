@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,13 @@ namespace Portfolio.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Form(ContactModels dane)
+        {
+            //in to XML file and SQL server
+            return Content($"email: {dane.email} ");
         }
     }
 }

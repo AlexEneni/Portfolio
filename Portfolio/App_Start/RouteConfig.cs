@@ -15,7 +15,7 @@ namespace Portfolio
 
             routes.MapRoute(
                 name: "Admin",
-                url: "admin/{controller}/{action}/{id}",
+                url: "admin/{action}/{id}",
                 defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
                 );
 

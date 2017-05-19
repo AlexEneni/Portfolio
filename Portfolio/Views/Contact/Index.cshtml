@@ -1,17 +1,39 @@
 ﻿@model Portfolio.Models.ContactModels
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Contact";
 }
 
 <div class="container">
 
     <div class="row" style="margin-top:2%">
-        <div class="col-md-8">
-            <h1>do poprawy</h1>
-            @using (Html.BeginForm())
-            {
-                @Html.EditorFor(m => m);
-            }
+        <div class="col-md-8 row">
+            <h1> bardzo wazny tytul formularza </h1>
+            <div class="col-md-6">
+                @using (Html.BeginForm("Form", "Contact", FormMethod.Post))
+                {
+                    @*<div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" id="text"></textarea>
+                    </div>*@
+                    @Html.EditorForModel()
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class=" btn btn-default">Reset</button>
+                }
+            </div>
+            <div class="col-md-6">
+                jakis tam opis nic nie wazny bla
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a luctus felis, sit amet faucibus nisl. Nullam vel augue facilisis, feugiat dui in, dictum enim. Proin eget ornare risus, quis lobortis ligula. Aenean sem leo, consequat non ligula eget, elementum dictum erat. Vestibulum sagittis accumsan placerat. Vestibulum dictum venenatis tortor at iaculis. Praesent sed diam accumsan, aliquet lacus a, scelerisque mauris. Nulla facilisi. Proin efficitur ultricies suscipit. Mauris et dui sed ex ultricies imperdiet. Quisque vehicula commodo est, sit amet sodales nisl consequat sit amet. Aliquam tempor consectetur est, quis sagittis nibh suscipit vel. Proin sed pellentesque arcu, ac tincidunt mi. Nam pellentesque sem quis ligula pharetra mollis.
+                </p>
+            </div>
         </div>
         <div class="col-md-4" style="border-left: 1px solid rgba(174,233,0,1)">
             <h3>

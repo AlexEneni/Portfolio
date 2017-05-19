@@ -93,3 +93,4 @@ D:\VS17Projects\Portfolio\Portfolio\bin\Microsoft.AI.WindowsServer.xml
 D:\VS17Projects\Portfolio\Portfolio\bin\Microsoft.AI.Web.xml
 D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.dll
 D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.pdb
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.csprojResolveAssemblyReference.cache
