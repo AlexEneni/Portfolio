@@ -1,0 +1,14 @@
+﻿@model List<Portfolio.Models.SmModels>
+
+@if (Model.Count() != 0)
+{
+    foreach (var item in Model)
+    {
+        <dt>
+            @item.Name
+        </dt>
+        <dd>
+            <a href="@item.url" target="_blank">@item.url</a>
+        </dd>
+    }
+}

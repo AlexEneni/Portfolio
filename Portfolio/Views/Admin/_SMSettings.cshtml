@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Portfolio.Models.SmModels>
+
+<h3>Social Media</h3>   
+
+ <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.onHomePage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.symbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.url)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if (item.active)
+                    {
+                        <span class="label label-success"> Yes </span>
+                    }
+                    else
+                    {
+                        <span class="label label-danger"> No </span>
+                    }
+                </td>
+                <td>
+                    @if (item.onHomePage)
+                    {
+                        <span class="label label-success"> Yes </span>
+                    }
+                    else
+                    {
+                        <span class="label label-danger"> No </span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.symbol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.url)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditSM", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>

@@ -1,0 +1,30 @@
+﻿@model List<Portfolio.Models.GaleryPostModels>
+@using Portfolio.Models;
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <h1>Galeria</h1>
+    @{ int i = 0;
+        List<GaleryPostModels> var = new List<GaleryPostModels>();
+        foreach (var item in Model)
+        {
+            i++;
+            if (i % 4 == 0)
+            {
+                var.Add(item);
+
+                <div class="row" style="margin-top:1%">
+                    @Html.Partial("_RowOfMedia", var)
+                </div>
+                var.Clear();
+            }
+            else
+            {
+                var.Add(item);
+            }
+
+        }
+    }
+</div>

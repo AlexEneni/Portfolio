@@ -1,0 +1,73 @@
+Projekt:
+	Portfolio
+Autor:
+	Olgierd Kowalczyk
+Technologie:
+	ASP.MVC 5
+	Entity Framework
+Uzyte jezyki:
+	c#
+	Razor
+	HTML
+	CSS
+Film:
+	https://youtu.be/KqqEkpNQHnM
+Opis:
+<wyglad>
+	W projekcie postaralem sie utworzyc prosty CMS dla grafikow.
+	Na stronie pierwszej mamy wyœwietlane dane i opisy osoby. uzywane sa do tego pliki poniewaz latwiej jest dlugi tekst przetrzymywac i wyswietlac z pliku niz z bazy danych.
+	Mamy takze moduly "najnowsze posty" oraz "najnowsze arty" ktore wyswietlaja odpowiednio najnowsze pozycje ktore dodajemy w panelu administracyjnym.
+	Pasek SocialMedia, ktory mozemy dowolnie edytowac. wybierajac z Panelu administracyjnego, ktore maja byc wlaczone (i wyswietlane w zakladce Contact) i ktore maja sie wyswietlac na stronie glownej.
+
+	Kolejna strona to Galeria wyswietla ona obiekty z listy, ktora pobiera z Bazy danych
+
+	Kolejna strona to Contact tam jest formularz kontaktowy ktory po wypelnieniu przesyla dane do bazy danych (dalej uzywany skrot DB) a w panelu mozemy je przeczytac i odpowiedziec.
+
+	Ostatnia strona to Blog gdzie sa wyswietlane obiekty z listy pobranej z DB
+
+	Panel administracyjny to dzial w projekcie ktory wymaga autoryzacji jezeli nie mamy aktywnej sesji to nasz program poprosi nas o zalogowanie (nieaktywna jest opcja rejestracji, zakladam ze program moze uzywac jedna osoba)
+	(jezeli wraz z solution przesylaja sie dane do DB to dane logowania: "olek97@hotmail.com" "Niemahasla1.") 
+
+	Pierwsza strona jest pusta, informuje gdzie sie znajdujemy
+
+	Koleja strona to zarzadzanie strona HOME:
+	>mozemy zapisywac nowe opisy
+	>zarzadzac danymi kontaktowymi oraz SocialMediami
+
+	Kolejna strona to Contacts ktora umozliwia nam przejrzenie wiadomosci z formularza kontaktowego, usuniecie ich, czy tez odpowiedzenie na nie poprzez zapisek mailto:
+
+	Kolejna strona to Galery niestety jest niedzialajacym modulem projektu, w ktorym znajdowalo sie przesylanie plikow. niestety proba kilku rozwiazan nie dala zadnego efektu. Nawet Stack nie pomogl. Najwyzej jezeli zostanê poinformowany o koniecznosci poprawienia projektu to postaram sie naprawic ten blad.
+
+	Kolejna strona to Blog wyswietla liste postow, mozna tu dodawac, edytowac oraz usuwac posty widniejace w sekcji bloga.
+
+	UWAGA!!!
+	w ca³ym projekcie nie stawiano wagi na wygl¹d strony tylko na jej dzia³anie. Dlatego np edytory tekstowe to zwykle textboxy a nie JSowe edytory
+
+<dzialanie i kod>
+	Poczas robienia projektu poznawa³em wiele roznych rozwiazan wiec jest mozliwosc ze metody ktore wykonuja takie same/podobne operacje beda zapisane inaczej.
+
+	Do komunikacji z DB uzylem EntityFramework (metody CodeFirst) ktory w prosty sposob pozwala na uniwersalne laczenie sie z baza danych i tworzeniem jej po stworzeniu modeli aplikacji.
+	Proste zapytania Linq z uzyciem wyrazen Lambda pozwolily na prosta i szybka obsluge danych.
+	funkcje using() zostaly uzywane do tworzenia zapytan w celu zapewnienia "bezpiecznego" rozpoczecia i zakonczenia polaczenia tylko w klamrach funkcji
+	
+	Do odczytu i zapisu plikow uzylem biblioteki System.IO i jej typów StreamRead do odczytu oraz SreamWrite do zapisu plikow tekstowych
+	Funckja Try Catch pozwalolila na latwe sprawdzenie czy plik istnieje i czy mozna go otworzyc.
+	Natomiast funkcja using() tak jak w przypadku DB otworzyc i zamknac polaczenie z plikiem.
+
+	Strona opiera siê na formularzach ktore sa tworzone za pomoca Html helperow ktore w prosty sposob pozwolily utworzyc i zarzadzac formularzami tworzac opisy, pola wejsciowe oraz pola bledow walidacji.
+
+	Bootstrap zapewnia wyglad i responsywnosc strony.
+
+	Przesy³anie danych odbywa siê poprzez listy lub Enumy
+
+	Kod jest hermetyczny pod wzgledem dostepu do funkcji, jezeli jakas funkcja nie musi byc dostepna z poziomu routingu to jest blokowana przez private
+
+	Uzywane sa atrybuty metod w celu zapewnienia poprawnego przeslania danych, zarzadzania walidacja czy tez zablokowaniem dostepu do funkcjii nieautoryzowanemu uzytkownikowi
+
+	W projekcie nie by³o potrzeby tworzenia delegat, klas dziedzicz¹cych czy interfejsów.
+
+	Tworz¹c kod stara³em siê zachowaæ wszelkie zasady czystego kodu. Metody i zmienne zapisywane s¹ w sposób zrozumia³y i po angielsku co pozwa (w razie potrzeby) na zrozumienie kodu przez obcokrajowców.
+
+	Jestem œwiadomy tego, ¿e controler Admin mog³em rozdzieliæ na mniejsze kontrolery co sprawi³oby wiêksz¹ przejrzystosc kodu, jednak uzyte regiony ulatwiaja poruszanie sie po nim.
+
+	W razie jakichœ dodatkowych potrzebnych zapytañ proszê o informacje o potrzebie opisania jakiegoœ elementu, poniewa¿ nie wiem co wiecej mo¿na opisaæ.

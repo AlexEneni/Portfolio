@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "HomeSetting";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+<div class="row" style="margin-top:5px">
+    <div class="col-sm-12 col-xs-12">
+        <h2>Home Settings</h2>
+    </div>
+<hr />
+@Html.Action("SocialMedia","Admin")
+
+<hr />
+
+@Html.Action("Contact", "Admin");

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Portfolio.Models.ContactSMModels>
+
+<h3> Contact </h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.symbol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.value)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @if (item.active)
+            {
+                <span class="label label-success"> Yes </span>
+            }
+            else
+            {
+                <span class="label label-danger"> No </span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.symbol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.value)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditContact", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

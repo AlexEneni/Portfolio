@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    @* main part *@
+    <div class="row">
+        <div class="col-md-12" style="padding-top:1%; text-align:justify;">
+            @* pictures *@
+            <img src="~/Resources/images/av.jpg" alt="..." class="img-circle" style="width:30%; padding:2%;" align="left" />
+            @* desc *@
+            @try
+            {
+                using (StreamReader sr = new StreamReader(Server.MapPath("~/Resources/name.txt")))
+                {
+                    HtmlString line = new HtmlString(sr.ReadToEnd());
+                    var result = line.ToString();
+            <h1>
+                @result
+            </h1>
+                }
+
+            }
+            catch
+            {
+            <span class="label-danger label"> Brak pliku </span>
+            }
+            @try
+            {
+                using (StreamReader sr = new StreamReader(Server.MapPath("~/Resources/desc.txt")))
+                {
+                    HtmlString line = new HtmlString(sr.ReadToEnd());
+
+            <div>
+                @line
+            </div>
+                }
+
+            }
+            catch
+            {
+            <span class="label-danger label"> Brak pliku </span>
+            }
+        </div>
+    </div>
+    <hr />
+    @* part of 3 col *@
+
+    <div class=" row">
+        @for (int i = 1; i <= 3; i++)
+        {
+
+            <div class="col-md-4">
+                @try
+                {
+                    using (StreamReader sr = new StreamReader(Server.MapPath($"~/Resources/subDesc{i}.txt")))
+                    {
+                        HtmlString line = new HtmlString(sr.ReadToEnd());
+                        var result = line.ToString();
+                        <div>
+                            @line
+                        </div>
+                    }
+
+                }
+                catch
+                {
+                    <span class="label-danger label"> Brak pliku </span>
+                }
+
+            </div>
+        }
+    </div>
+
+
+    <hr />
+    @* part of blog *@
+    @Html.Action("HomeBlogPart", "Home")
+    @* part of galery *@
+    @Html.Action("HomeGaleryPart", "Home")
+    @* Skill Bars *@
+    <div class="row text-center">
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Programowanie
+                </dt>
+                <dd>
+                    Jezyk c#, c++, SQL, PHP i HTMl
+                </dd>
+            </dl>
+            <div class="progress">
+                <div class="progress-bar"
+                     role="progressbar"
+                     aria-valuenow="80"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     style="width:80%; background-color: rgba(174,233,0,1);">
+                    80%
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Fotografia
+                </dt>
+                <dd>
+                    Portret, Krajobraz, Makro
+                </dd>
+            </dl>
+            <div class="progress">
+                <div class="progress-bar"
+                     role="progressbar"
+                     aria-valuenow="65"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     style="width:65%; background-color: rgba(174,233,0,1);">
+                    65%
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* Social Media *@
+    @Html.Action("HomeSM", "Home")
+</div>

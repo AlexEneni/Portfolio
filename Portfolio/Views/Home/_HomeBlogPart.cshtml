@@ -1,0 +1,41 @@
+﻿@model List <Portfolio.Models.BlogPostModels>
+@using System.IO;
+<div class="row">
+    <div class="col-md-12">
+        <h3> Najnowsze posty: </h3>
+    </div>
+    @if (Model.Count() != 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-sm-6">
+                <h1>@item.Title</h1>
+                <h6 class="text-info" style="margin-bottom:5%">@item.date.Date.ToShortDateString() | Author: @item.author</h6>
+
+                @try
+                {
+                    using (StreamReader sr = new StreamReader(item.textFileUrl))
+                    {
+                        HtmlString line = new HtmlString(sr.ReadToEnd());
+                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@line</div>
+
+                        @Html.ActionLink("... Czytaj dalej", "Index", "Blog")
+                    }
+
+                }
+                catch
+                {
+                    <span class="label-danger label"> Brak pliku </span>
+                }
+
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-md-12">
+            <h4 class="text-warning"> Aktualnie nie ma nic do wyświetlenia.</h4>
+        </div>
+    }
+</div>
+<hr />
