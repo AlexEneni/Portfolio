@@ -1,0 +1,52 @@
+﻿@model Portfolio.Models.BlogPostModels
+
+@{
+    ViewBag.Title = "BlogPostCreate";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<h2>BlogPostCreate</h2>
+
+@using (Html.BeginForm("BlogPostCreateForm", "Admin",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.date)
+    @Html.HiddenFor(m => m.textFileUrl)
+
+    <div class="form-horizontal">
+        <h4>BlogPostModels</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.author, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.author, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.author, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <textarea name="txt" class="form-control" rows="5">  </textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a class="btn btn-default" href="@Url.Action("BlogPostList", "Admin")" role="button">Back</a>
+</div>

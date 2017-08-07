@@ -195,13 +195,51 @@
     <Compile Include="Controllers\GaleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\DataBaseContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707261358184_InitialCreate.cs" />
+    <Compile Include="Migrations\201707261358184_InitialCreate.Designer.cs">
+      <DependentUpon>201707261358184_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707261807197_NewDbContact.cs" />
+    <Compile Include="Migrations\201707261807197_NewDbContact.Designer.cs">
+      <DependentUpon>201707261807197_NewDbContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707262013496_NewDbBlogPost.cs" />
+    <Compile Include="Migrations\201707262013496_NewDbBlogPost.Designer.cs">
+      <DependentUpon>201707262013496_NewDbBlogPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707262016029_ReUploadBlogPost.cs" />
+    <Compile Include="Migrations\201707262016029_ReUploadBlogPost.Designer.cs">
+      <DependentUpon>201707262016029_ReUploadBlogPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707280814212_AddGaleryPostTable.cs" />
+    <Compile Include="Migrations\201707280814212_AddGaleryPostTable.Designer.cs">
+      <DependentUpon>201707280814212_AddGaleryPostTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707291401345_AddDateToGaleryPost.cs" />
+    <Compile Include="Migrations\201707291401345_AddDateToGaleryPost.Designer.cs">
+      <DependentUpon>201707291401345_AddDateToGaleryPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051907282_MessageTableAdd.cs" />
+    <Compile Include="Migrations\201708051907282_MessageTableAdd.Designer.cs">
+      <DependentUpon>201708051907282_MessageTableAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051928522_MessTitleAddCol.cs" />
+    <Compile Include="Migrations\201708051928522_MessTitleAddCol.Designer.cs">
+      <DependentUpon>201708051928522_MessTitleAddCol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BlogPostModels.cs" />
     <Compile Include="Models\ContactModels.cs" />
+    <Compile Include="Models\GaleryPostModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\SmModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -213,6 +251,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\desc.txt" />
+    <Content Include="Resources\N.txt" />
+    <Content Include="Resources\name.txt" />
+    <Content Include="Resources\subDesc0.txt" />
+    <Content Include="Resources\subDesc1.txt" />
+    <Content Include="Resources\subDesc2.txt" />
+    <Content Include="Resources\subDesc3.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -266,9 +311,51 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Shared\_AdminPage.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\_HomeBlogPart.cshtml" />
+    <Content Include="Views\Home\_HomeGaleryPart.cshtml" />
+    <Content Include="Views\Admin\HomeSetting.cshtml" />
+    <Content Include="Views\Admin\HomeContent.cshtml" />
+    <Content Include="Views\Admin\ContactSetting.cshtml" />
+    <Content Include="Views\Admin\ContactContent.cshtml" />
+    <Content Include="Views\Admin\GalerySetting.cshtml" />
+    <Content Include="Views\Admin\GaleryArtList.cshtml" />
+    <Content Include="Views\Admin\BlogSetting.cshtml" />
+    <Content Include="Views\Admin\BlogPostList.cshtml" />
+    <Content Include="Views\Admin\SupportLicence.cshtml" />
+    <Content Include="Views\Admin\SupportContact.cshtml" />
+    <Content Include="Views\Admin\SupportOferts.cshtml" />
+    <Content Include="Views\Blog\_Post.cshtml" />
+    <Content Include="Views\Contact\_RightBarContact.cshtml" />
+    <Content Include="Views\Galery\_RowOfMedia.cshtml" />
+    <Content Include="Views\Home\_HomeSM.cshtml" />
+    <Content Include="Views\Contact\_SMOnBar.cshtml" />
+    <Content Include="Views\Contact\_ContactOnBar.cshtml" />
+    <Content Include="Views\Admin\_HomeContentAvatar.cshtml" />
+    <Content Include="Views\Admin\_HomeContentMain.cshtml" />
+    <Content Include="Views\Admin\_HomeContentSubDesc.cshtml" />
+    <Content Include="Views\Admin\MessageList.cshtml" />
+    <Content Include="Views\Admin\MessageView.cshtml" />
+    <Content Include="Views\Contact\_ContactForm.cshtml" />
+    <Content Include="Views\Admin\_SMSettings.cshtml" />
+    <Content Include="Views\Admin\EditSM.cshtml" />
+    <Content Include="Views\Admin\_ContactSettings.cshtml" />
+    <Content Include="Views\Admin\EditContact.cshtml" />
+    <Content Include="Views\Admin\_BlogPostListList.cshtml" />
+    <Content Include="Views\Admin\EditBlogPost.cshtml" />
+    <Content Include="Views\Admin\BlogPostCreate.cshtml" />
+    <Content Include="Views\Admin\BlogPostDelete.cshtml" />
+    <Content Include="Views\Admin\_GaleryArtListList.cshtml" />
+    <Content Include="Views\Admin\EditGaleryArt.cshtml" />
+    <Content Include="Views\Admin\GaleryArtDelete.cshtml" />
+    <Content Include="Views\Admin\GaleryArtCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\Pic\" />
+    <Folder Include="Data\Txt\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Resources\UploadedFiles\" />
+    <Folder Include="Views\FileUpdate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -284,6 +371,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707261358184_InitialCreate.resx">
+      <DependentUpon>201707261358184_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707261807197_NewDbContact.resx">
+      <DependentUpon>201707261807197_NewDbContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707262013496_NewDbBlogPost.resx">
+      <DependentUpon>201707262013496_NewDbBlogPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707262016029_ReUploadBlogPost.resx">
+      <DependentUpon>201707262016029_ReUploadBlogPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707280814212_AddGaleryPostTable.resx">
+      <DependentUpon>201707280814212_AddGaleryPostTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707291401345_AddDateToGaleryPost.resx">
+      <DependentUpon>201707291401345_AddDateToGaleryPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051907282_MessageTableAdd.resx">
+      <DependentUpon>201708051907282_MessageTableAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051928522_MessTitleAddCol.resx">
+      <DependentUpon>201708051928522_MessTitleAddCol.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

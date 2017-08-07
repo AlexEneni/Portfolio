@@ -1,0 +1,21 @@
+﻿@model Portfolio.Models.BlogPostModels
+@using System.IO;
+<div class="container">
+    <h1>@Model.Title</h1>
+    <h6 class="text-info" style="margin-bottom:5%">@Model.date.Date.ToShortDateString() | Author: @Model.author</h6>
+    
+    @try
+    {
+        using (StreamReader sr = new StreamReader(Model.textFileUrl))
+        {
+            HtmlString line = new HtmlString(sr.ReadToEnd());
+            <div>@line</div>
+        }
+
+    }
+    catch
+    {
+        <span class="label-danger label"> Brak pliku </span>
+    }
+
+</div>

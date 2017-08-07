@@ -1,0 +1,49 @@
+﻿@model Portfolio.Models.BlogPostModels
+
+@{
+    ViewBag.Title = "BlogPostDelete";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("BlogPostDeleteForm","Admin",FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ID)
+        @Html.HiddenFor(m => m.author)
+        @Html.HiddenFor(m => m.date)
+        @Html.HiddenFor(m => m.textFileUrl)
+        @Html.HiddenFor(m => m.Title)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+
+            <a class="btn btn-default" href="@Url.Action("EditBlogPost", "Admin",new { id = Model.ID })" role="button">Back</a>
+        </div>
+    }
+</div>

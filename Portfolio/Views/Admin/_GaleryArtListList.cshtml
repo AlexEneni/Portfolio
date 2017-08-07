@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Portfolio.Models.GaleryPostModels>
+
+<p>
+    @Html.ActionLink("Create New", "GaleryArtCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Desc
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                <img src="@item.imageUrl" alt="..." style="max-width:30%;max-height:10%"/>
+            </td>
+
+            @try
+            {
+                using (StreamReader sr = new StreamReader(item.descUrl))
+                {
+                    string line = sr.ReadToEnd();
+                    <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        @line
+                    </td>
+                }
+            }
+            catch
+            {
+                <td><span class="label label-danger">File was not find</span></td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditGaleryArt", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

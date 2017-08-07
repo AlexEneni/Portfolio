@@ -1,0 +1,15 @@
+﻿@model List<Portfolio.Models.GaleryPostModels>
+
+<div class="row" style="margin-top:1%;">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <span class="label">@item.title</span>
+                <img style="display: block; max-height:180px; max-width:100%; width: auto; height: auto; "
+                     src="@item.imageUrl"
+                     alt="..." />
+            </a>
+        </div>
+    }
+</div>

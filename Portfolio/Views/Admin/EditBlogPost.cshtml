@@ -1,0 +1,74 @@
+﻿@model Portfolio.Models.BlogPostModels
+
+@{
+    ViewBag.Title = "EditBlogPost";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<h2>EditBlogPost</h2>
+
+@using (Html.BeginForm("BlogPostForm","Admin",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>BlogPostModels</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(m => m.textFileUrl)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.author, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.author, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.author, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @disabled = "disabled", @class = "form-control disabled"} })
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                @try
+                {
+                    using (StreamReader sr = new StreamReader(Model.textFileUrl))
+                    {
+                        HtmlString line = new HtmlString(sr.ReadToEnd());
+                        var result = line.ToString();
+                        <textarea name="txt" class="form-control" rows="5"> @result </textarea>
+                    }
+                }
+                catch
+                {
+                    <textarea name="txt" class="form-control" rows="5">  </textarea>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a class="btn btn-default" href="@Url.Action("BlogPostList", "Admin")" role="button">Back</a>
+    <a class="btn btn-danger" href="@Url.Action("BlogPostDelete", "Admin", new { id = Model.ID})" role="button">Delete</a>
+</div>

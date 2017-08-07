@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Portfolio.DAL;
+using Portfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +15,48 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public PartialViewResult HomeBlogPart()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return PartialView("_HomeBlogPart", ListBlogPostForHome());
+        }
+        private List<BlogPostModels> ListBlogPostForHome()
+        {
+            List<BlogPostModels> result = new List<BlogPostModels>();
+            using(DataBaseContext db = new DataBaseContext())
+            {
+                result = db.BlogPost.OrderByDescending(m => m.date).Take(2).ToList();
+            }
+            return result;
         }
 
-        public ActionResult Contact()
+        public PartialViewResult HomeGaleryPart()
         {
-            ViewBag.Message = "Your contact page.";
+            return PartialView("_HomeGaleryPart", ListGaleryPostForHome());
+        }
+        private List<GaleryPostModels> ListGaleryPostForHome()
+        {
+            List<GaleryPostModels> result = new List<GaleryPostModels>();
 
-            return View();
+            using(DataBaseContext db = new DataBaseContext())
+            {
+                result = db.GaleryPost.OrderByDescending(m => m.date).Take(3).ToList();
+            }
+
+            return result;
+        }
+
+        public PartialViewResult HomeSM()
+        {
+            return PartialView("_HomeSM", HomePageSMList());
+        }
+        private List<SmModels> HomePageSMList()
+        {
+            List<SmModels> result = new List<SmModels>();
+            using(DataBaseContext db = new DataBaseContext())
+            {
+                result = db.Sm.Where(m => m.onHomePage && m.active).ToList();
+            }
+            return result;
         }
     }
 }

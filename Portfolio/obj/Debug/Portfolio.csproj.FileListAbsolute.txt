@@ -1,3 +1,10 @@
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.InitialCreate.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.NewDbContact.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.NewDbBlogPost.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.ReUploadBlogPost.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.AddGaleryPostTable.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.AddDateToGaleryPost.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.csproj.GenerateResource.Cache
 D:\VS17Projects\Portfolio\Portfolio\bin\ApplicationInsights.config
 D:\VS17Projects\Portfolio\Portfolio\bin\roslyn\csc.exe
 D:\VS17Projects\Portfolio\Portfolio\bin\roslyn\csc.exe.config
@@ -93,4 +100,6 @@ D:\VS17Projects\Portfolio\Portfolio\bin\Microsoft.AI.WindowsServer.xml
 D:\VS17Projects\Portfolio\Portfolio\bin\Microsoft.AI.Web.xml
 D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.dll
 D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.pdb
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.MessageTableAdd.resources
+D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.Migrations.MessTitleAddCol.resources
 D:\VS17Projects\Portfolio\Portfolio\obj\Debug\Portfolio.csprojResolveAssemblyReference.cache

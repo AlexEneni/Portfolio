@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Portfolio.DAL;
+using Portfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,17 @@ namespace Portfolio.Controllers
         // GET: Galery
         public ActionResult Index()
         {
-            return View();
+            return View(GaleryList());
+        }
+        private List<GaleryPostModels> GaleryList()
+        {
+            List<GaleryPostModels> result = new List<GaleryPostModels>();
+
+            using(DataBaseContext db = new DataBaseContext())
+            {
+                result = db.GaleryPost.OrderByDescending(m => m.date).ToList();
+            }
+            return result;
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿@model List<Portfolio.Models.GaleryPostModels>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3> Najnowsze arty: </h3>
+    </div>
+</div>
+@if (Model.Count() != 0)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <a href="#" class="thumbnail">
+                    <img style="display: block; max-height:180px; max-width:100%; width: auto; height: auto; "
+                         src="@item.imageUrl"
+                         alt="..." />
+                </a>
+            </div>
+        }
+    </div>
+}
+else
+{<div class="row">
+        <div class="col-md-12">
+            <h4 class="text-warning"> Aktualnie nie ma nic do wyświetlenia.</h4>
+        </div>
+    </div>
+}
+</div>
+<hr />

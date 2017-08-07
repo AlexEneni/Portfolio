@@ -1,0 +1,42 @@
+﻿@model Portfolio.Models.GaleryPostModels
+
+@{
+    ViewBag.Title = "GaleryArtDelete";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<h2>GaleryArtDelete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GaleryPostModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("GaleryArtDeleteForm","Admin",FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m=>m.ID)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+
+            <a class="btn btn-default" href="@Url.Action("GaleryArtList", "Admin")" role="button">Back</a>
+        </div>
+    }
+</div>

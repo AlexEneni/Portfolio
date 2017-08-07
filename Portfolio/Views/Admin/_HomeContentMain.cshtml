@@ -1,0 +1,51 @@
+﻿
+<div class=" row">
+    <div class="col-md-4">
+        <h2>Nazwa: </h2>
+        @using (Html.BeginForm("HomeContentName", "Admin", FormMethod.Post))
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(Server.MapPath("~/Resources/name.txt")))
+                {
+                    HtmlString line = new HtmlString(sr.ReadToEnd());
+                    var result = line.ToString();
+                    <div class="form-group">
+                        <input type="text" style="width:100%" name="name" class="form-control" value="@result" />
+                        <button type="submit" class="btn btn-default">Zapisz</button>
+                    </div>
+                }
+
+            }
+            catch
+            {
+                <span class="label-danger label"> Brak pliku </span>
+            }
+        }
+    </div>
+    <div class="col-md-8">
+        <h2>Opis: </h2>
+
+        @using (Html.BeginForm("HomeContentDesc", "Admin", FormMethod.Post))
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(Server.MapPath("~/Resources/desc.txt")))
+                {
+                    HtmlString line = new HtmlString(sr.ReadToEnd());
+
+                    var result = line.ToString();
+                    <div class="form-group">
+                        <textarea type="text" rows="5" style="width:100%" name="desc" class="form-control">@result</textarea>
+                        <button type="submit" class="btn btn-default">Zapisz</button>
+                    </div>
+                }
+
+            }
+            catch
+            {
+                <span class="label-danger label"> Brak pliku </span>
+            }
+        }
+    </div>
+</div>

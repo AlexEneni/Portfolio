@@ -1,0 +1,60 @@
+﻿@model Portfolio.Models.Message
+@using Portfolio.DAL;
+
+@{
+    ViewBag.Title = "MessageView";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<h2>@Html.DisplayFor(model => model.title)</h2>
+
+<div>
+    <h4> From @Html.DisplayFor(model => model.userName)</h4>
+    <hr />
+    <dl class="dl-horizontal" style="word-wrap:break-word;">
+        <dt>
+            E-Mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eMail)
+        </dd>
+
+        <dt style="margin-top:3%">
+            @Html.DisplayNameFor(model => model.text) 
+        </dt>
+
+        <dd style="margin-top:3%">
+            @Html.DisplayFor(model => model.text)
+        </dd>
+
+        <dt style="margin-top:3%">
+            Date of send:
+        </dt>
+
+        <dd style="margin-top:3%">
+            @Html.DisplayFor(model => model.dateOfSend)
+        </dd>
+
+        <dt style="margin-top:3%">
+            Was displayed?: 
+        </dt>
+
+        <dd style="margin-top:3%">
+            @if (Model.wasDisplayed)
+            {
+                <span class="label label-success"> Yes </span>
+            }
+            else
+            {
+                <span class="label label-danger"> No </span>
+            }
+            @Html.Action("SetDisplayed", "Admin", new { id = Model.ID})
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" href="@Url.Action("MessageList", "Admin", new { id = 0 })" role="button">Back to List</a>
+    <a class="btn btn-success" href="mailto: @Model.eMail?title=@Model.title;body=Dear @Model.userName" role="button">Send answer</a>
+</p>
